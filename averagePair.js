@@ -13,6 +13,34 @@ averagePair ([-1,0,3,4,5,6], 4.1) // false
 averagePair([1],4) // false
 **/
 
-function averagePair(){
-  // add whatever parameters you deem necessary - good luck!
+
+// Time: O(N)
+// Space: O(N)
+function averagePair(array, avg) {
+  let tmpObject = {}
+  for (let index = 0; index < array.length; index++) {
+    if (tmpObject[array[index]]) {
+      return true
+    } else {
+      tmpObject[((avg * 2) - array[index])] = true
+    }
+  }
+  return false
+}
+
+// Time: O(N)
+// Space: O(1)
+function averagePair(array, avg) {
+  let right = array.length - 1
+  let left = 0
+  while (right > left) {
+    if (((array[right] + array[left]) / 2) > avg) {
+      right = right - 1
+    } else if (((array[right] + array[left]) / 2) < avg) {
+      left = left + 1
+    } else if (((array[right] + array[left]) / 2) == avg) {
+      return true
+    }
+  }
+  return false
 }
