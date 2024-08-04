@@ -13,6 +13,32 @@ Time - O(n log n)
 Space - O(1)
 **/
 
-function areThereDuplicates() {
-  // good luck. (supply any arguments you deem necessary.)
+
+// Time - O(n)
+// Space - O(n)
+function areThereDuplicates(array) {
+  let tmpArray = []
+  for (let index = 0; index < array.length; index++) {
+    if (tmpArray.includes(array[index])) {
+      return true
+    } else {
+      tmpArray.push(array[index])
+    }
+  }
+  return false
+}
+
+
+// Time - O(n log n)
+// Space - O(1)
+function areThereDuplicates(array) {
+  let sortedArray = array.sort()
+  for (let index = 0; index < array.length; index++) {
+    if (sortedArray[index++]) {
+      if (sortedArray[index] == sortedArray[index++]) {
+        return true
+      }
+    }
+  }
+  return false
 }
