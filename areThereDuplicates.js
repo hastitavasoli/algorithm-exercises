@@ -34,8 +34,8 @@ function areThereDuplicates(array) {
 function areThereDuplicates(array) {
   let sortedArray = array.sort()
   for (let index = 0; index < array.length; index++) {
-    if (sortedArray[index++]) {
-      if (sortedArray[index] == sortedArray[index++]) {
+    if (sortedArray[index + 1]) {
+      if (sortedArray[index] == sortedArray[index + 1]) {
         return true
       }
     }
