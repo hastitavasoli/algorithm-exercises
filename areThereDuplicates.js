@@ -17,12 +17,12 @@ Space - O(1)
 // Time - O(n)
 // Space - O(n)
 function areThereDuplicates(array) {
-  let tmpArray = []
+  let tmpObject = {}
   for (let index = 0; index < array.length; index++) {
-    if (tmpArray.includes(array[index])) {
+    if (tmpObject[array[index]]) {
       return true
     } else {
-      tmpArray.push(array[index])
+      tmpObject[array[index]] = true
     }
   }
   return false
