@@ -11,6 +11,24 @@ sameFrequency (3589578, 5879385) // true
 sameFrequency (22,222) // false
 **/
 
-function sameFrequency(){
-  // good luck. Add any arguments you deem necessary.
+function sameFrequency(firstNum, secondNum) {
+  if ((firstNum.toString()).length == (secondNum.toString()).length) {
+    let firstNumFrequency = {}
+    let secondNumFrequency = {}
+
+    for (let i = 0; i < (firstNum.toString()).length; i++) {
+      firstNumFrequency[(firstNum.toString())[i]] = (firstNumFrequency[(firstNum.toString())[i]] || 0) + 1;
+      secondNumFrequency[(secondNum.toString())[i]] = (secondNumFrequency[(secondNum.toString())[i]] || 0) + 1;
+    }
+    if (Object.keys(firstNumFrequency).length == Object.keys(secondNumFrequency).length) {
+      for (const property in firstNumFrequency) {
+        if (firstNumFrequency[property] != secondNumFrequency[property]) {
+          return false
+        }
+      }
+    } else {
+      return false
+    }
+    return true
+  } else return false
 }
